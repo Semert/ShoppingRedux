@@ -14,7 +14,7 @@ const Products = (props) => {
         <Link to="/cart">Sepetim {props.cart.length}</Link>
       </h2>
       {props.bookList?.map((book) => (
-        <div className="book">
+        <div className="book" key={book.id}>
           <img src={book.image} alt={book} />
           <div>
             <h4>{book.name}</h4>
