@@ -23,7 +23,6 @@ const Cart = (props) => {
             <h4>{book.name}</h4>
             <p>Yazar: {book.author}</p>
             <p>Fiyat: &#8378;{book.price}</p>
-            <p>Toplam: &#8378;19.99</p>
             <button>-</button>
             <button onClick={() => props.sepettenCikar(book.id)}>
               Sepetten Çıkar
