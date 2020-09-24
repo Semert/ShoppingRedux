@@ -4,3 +4,10 @@ export const sepeteEkle = (book) => {
     payload: book,
   };
 };
+
+export const sepettenCikar = (id) => {
+  return {
+    type: "SEPETTEN_CIKAR",
+    payload: id,
+  };
+};

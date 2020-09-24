@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { sepettenCikar } from "../actions";
 
 const Cart = (props) => {
-  const toplam = props.cart.reduce((amount, item) => amount + item.price, 0);
+  const toplam = props.cart?.reduce((amount, item) => amount + item.price, 0);
 
   return (
     <div>
@@ -24,7 +25,9 @@ const Cart = (props) => {
             <p>Toplam: &#8378;19.99</p>
             <p>Sepetinizde bu kitaptan toplam 1 adet var.</p>
             <button>-</button>
-            <button>Sepetten Çıkar</button>
+            <button onClick={() => props.sepettenCikar(book.id)}>
+              Sepetten Çıkar
+            </button>
             <button>+</button>
           </div>
         </div>
@@ -39,4 +42,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { sepettenCikar })(Cart);
