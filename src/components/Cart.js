@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { sepettenCikar } from "../actions";
 
 const Cart = (props) => {
+  console.log(props.cart);
   const toplam = props.cart?.reduce((amount, item) => amount + item.price, 0);
 
   return (
@@ -23,7 +24,6 @@ const Cart = (props) => {
             <p>Yazar: {book.author}</p>
             <p>Fiyat: &#8378;{book.price}</p>
             <p>Toplam: &#8378;19.99</p>
-            <p>Sepetinizde bu kitaptan toplam 1 adet var.</p>
             <button>-</button>
             <button onClick={() => props.sepettenCikar(book.id)}>
               Sepetten Çıkar
