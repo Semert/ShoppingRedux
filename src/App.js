@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.css";
+import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import {createStore} from "redux"
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 
-import { data } from "./data";
-
-export default function App() {
+const App = (props) => {
+  console.log(props);
   return (
     <div className="App">
       <h1>
@@ -22,4 +21,11 @@ export default function App() {
       <Route path="/cart" component={Cart} />
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    bookList: state.bookList,
+  };
+};
+export default connect(mapStateToProps)(App);
