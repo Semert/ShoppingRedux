@@ -13,10 +13,22 @@ export const reducer = (state = INITIAL_STATE, action) => {
         cart: [...state.cart, action.payload],
       };
     case "SEPETTEN_CIKAR":
+      const index = state.cart.findIndex((ct) => ct.id === action.payload);
+      let newBasket = [...state.cart];
+
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      } else {
+        console.log("tekrar deneyiniz.");
+      }
       return {
         ...state,
-        cart: [...state.cart.filter((ct) => ct.id !== action.payload)],
+        cart: newBasket,
       };
+    /* return {
+        ...state,
+        cart: [...state.cart.filter((ct) => ct.id !== action.payload)],
+      }; */
     default:
       return state;
   }
